@@ -5,7 +5,25 @@ All work is organized into three parts—each focused on a different dataset and
 
 ---
 
-## 1️⃣ M5 Forecasting (Walmart Retail Sales)
+## 1️⃣ Visuelle Retail Forecasting (Multimodal, Custom Deep Learning)
+
+**Dataset:** Visuelle 2.0 (proprietary retail sales + product images)  
+**Objective:** Compare a custom-built TensorFlow/Keras N-BEATS model and LightGBM on multimodal retail data, integrating image features.
+
+- Data preprocessing merges sales, calendar, and image-based CNN features
+- **Image Feature Extraction:** VGG16 CNN → tabular “image feature” per SKU
+- Feature engineering: calendar, lags, rolling stats
+- Model training:
+  - **Custom N-BEATS** (TensorFlow/Keras, built from scratch)
+  - **PyTorch N-BEATS** (reference)
+  - **LightGBM** (baseline)
+- **Cross-Validation:**
+  - Group Time Series, Purged Group Time Series, Combinatorial Purged CV (all implemented)
+- **Evaluation:** MAE, WAPE, MAPE
+
+---
+
+## 2️⃣ M5 Forecasting (Walmart Retail Sales)
 
 **Dataset:** [M5 Forecasting – Accuracy (Kaggle)](https://www.kaggle.com/competitions/m5-forecasting-accuracy)  
 **Objective:** Predict daily sales for 3,000+ Walmart products across 10 stores using tabular, calendar, and price features.
@@ -22,7 +40,7 @@ All work is organized into three parts—each focused on a different dataset and
 
 ---
 
-## 2️⃣ M4 Hourly Forecasting (Benchmark Time Series Study)
+## 3️⃣ M4 Hourly Forecasting (Benchmark Time Series Study)
 
 **Dataset:** [M4 Hourly Dataset](https://github.com/Mcompetitions/M4-methods)  
 **Objective:** Benchmark N-BEATS and LightGBM on standard hourly time series using advanced CV.
@@ -35,24 +53,6 @@ All work is organized into three parts—each focused on a different dataset and
 - **Cross-Validation:**
   - GroupTimeSeries, PurgedGroupTimeSeries, and CombinatorialPurgedGroupKFold (all implemented and explained)
 - **Evaluation:** RMSE, MAPE, SMAPE across all folds
-
----
-
-## 3️⃣ Visuelle Retail Forecasting (Multimodal, Custom Deep Learning)
-
-**Dataset:** Visuelle 2.0 (proprietary retail sales + product images)  
-**Objective:** Compare a custom-built TensorFlow/Keras N-BEATS model and LightGBM on multimodal retail data, integrating image features.
-
-- Data preprocessing merges sales, calendar, and image-based CNN features
-- **Image Feature Extraction:** VGG16 CNN → tabular “image feature” per SKU
-- Feature engineering: calendar, lags, rolling stats
-- Model training:
-  - **Custom N-BEATS** (TensorFlow/Keras, built from scratch)
-  - **PyTorch N-BEATS** (reference)
-  - **LightGBM** (baseline)
-- **Cross-Validation:**
-  - Group Time Series, Purged Group Time Series, Combinatorial Purged CV (all implemented)
-- **Evaluation:** MAE, WAPE, MAPE
 
 ---
 
